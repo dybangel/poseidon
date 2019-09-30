@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "H:\\Android-SDK@1.9.9.45003_20180511\\Haihong_localbuild\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\913906ad453b0079d0691fdc2702a50326c4e931\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "H:\\Android-SDK@1.9.9.45003_20180511\\Haihong_localbuild\\app\\build\\intermediates\\res\\merged\\debug\\color\\dcloud_slt_about_text_color.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\82b8649f21b4a521d7fb90e9c12be2dce6d1599f\\output\\res\\color\\dcloud_slt_about_text_color.xml"
+    },
+    {
+        "merged": "H:\\Android-SDK@1.9.9.45003_20180511\\Haihong_localbuild\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_dark.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\913906ad453b0079d0691fdc2702a50326c4e931\\output\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "H:\\Android-SDK@1.9.9.45003_20180511\\Haihong_localbuild\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_search_url_text.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\913906ad453b0079d0691fdc2702a50326c4e931\\output\\res\\color\\abc_search_url_text.xml"
+    },
+    {
+        "merged": "H:\\Android-SDK@1.9.9.45003_20180511\\Haihong_localbuild\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_dark.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\913906ad453b0079d0691fdc2702a50326c4e931\\output\\res\\color\\abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "H:\\Android-SDK@1.9.9.45003_20180511\\Haihong_localbuild\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_light.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\913906ad453b0079d0691fdc2702a50326c4e931\\output\\res\\color\\abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "H:\\Android-SDK@1.9.9.45003_20180511\\Haihong_localbuild\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_light.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\913906ad453b0079d0691fdc2702a50326c4e931\\output\\res\\color\\switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "H:\\Android-SDK@1.9.9.45003_20180511\\Haihong_localbuild\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\913906ad453b0079d0691fdc2702a50326c4e931\\output\\res\\color\\switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "H:\\Android-SDK@1.9.9.45003_20180511\\Haihong_localbuild\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_light.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\913906ad453b0079d0691fdc2702a50326c4e931\\output\\res\\color\\abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "H:\\Android-SDK@1.9.9.45003_20180511\\Haihong_localbuild\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\913906ad453b0079d0691fdc2702a50326c4e931\\output\\res\\color\\abc_secondary_text_material_dark.xml"
+    }
+]
