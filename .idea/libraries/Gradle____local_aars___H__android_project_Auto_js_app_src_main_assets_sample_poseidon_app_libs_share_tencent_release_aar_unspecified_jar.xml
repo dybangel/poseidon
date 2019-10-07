@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_aars__:H.\android_project\Auto.js\app\src\main\assets\sample\poseidon\app\libs\share-tencent-release.aar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/share-tencent-release.aar/84d684edb80806cfd9f3d146957388c7/jars/libs/tx_weibo_sdk_component.jar!/" />
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/share-tencent-release.aar/84d684edb80806cfd9f3d146957388c7/jars/libs/tx_weibo_sdk-httpclient-3.0.1.jar!/" />
+      <root url="file://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/share-tencent-release.aar/84d684edb80806cfd9f3d146957388c7/res" />
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/share-tencent-release.aar/84d684edb80806cfd9f3d146957388c7/jars/classes.jar!/" />
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/share-tencent-release.aar/84d684edb80806cfd9f3d146957388c7/jars/libs/tx_weibo_sdk.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

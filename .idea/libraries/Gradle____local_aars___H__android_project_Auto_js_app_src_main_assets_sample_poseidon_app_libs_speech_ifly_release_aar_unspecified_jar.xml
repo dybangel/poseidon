@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_aars__:H.\android_project\Auto.js\app\src\main\assets\sample\poseidon\app\libs\speech_ifly-release.aar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/speech_ifly-release.aar/d10b6c7f1b426da5b6c39fdb3d0c05b6/jars/libs/Msc.jar!/" />
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/speech_ifly-release.aar/d10b6c7f1b426da5b6c39fdb3d0c05b6/jars/classes.jar!/" />
+      <root url="file://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/speech_ifly-release.aar/d10b6c7f1b426da5b6c39fdb3d0c05b6/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

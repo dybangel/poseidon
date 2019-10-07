@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_aars__:H.\android_project\Auto.js\app\src\main\assets\sample\poseidon\app\libs\share-sina-release.aar:unspecified@jar">
+    <CLASSES>
+      <root url="file://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/share-sina-release.aar/e0e3bf55c154bb0a76a300f330f7261d/res" />
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/share-sina-release.aar/e0e3bf55c154bb0a76a300f330f7261d/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

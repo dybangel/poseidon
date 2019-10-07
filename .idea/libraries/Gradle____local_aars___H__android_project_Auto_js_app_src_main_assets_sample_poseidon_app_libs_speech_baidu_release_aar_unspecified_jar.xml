@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_aars__:H.\android_project\Auto.js\app\src\main\assets\sample\poseidon\app\libs\speech_baidu-release.aar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/speech_baidu-release.aar/181322454dc1ce25118e82dca221b17b/jars/libs/bdasr_V3_20180801_d6f298a.jar!/" />
+      <root url="file://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/speech_baidu-release.aar/181322454dc1ce25118e82dca221b17b/res" />
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/speech_baidu-release.aar/181322454dc1ce25118e82dca221b17b/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

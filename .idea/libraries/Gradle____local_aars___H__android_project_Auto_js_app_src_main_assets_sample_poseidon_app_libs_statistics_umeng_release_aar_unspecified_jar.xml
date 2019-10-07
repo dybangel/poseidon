@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_aars__:H.\android_project\Auto.js\app\src\main\assets\sample\poseidon\app\libs\statistics-umeng-release.aar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/statistics-umeng-release.aar/8ce9beaba4accf47a819f54866d7a4e8/jars/classes.jar!/" />
+      <root url="file://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/statistics-umeng-release.aar/8ce9beaba4accf47a819f54866d7a4e8/res" />
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/statistics-umeng-release.aar/8ce9beaba4accf47a819f54866d7a4e8/jars/libs/umeng-analytics-v6.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

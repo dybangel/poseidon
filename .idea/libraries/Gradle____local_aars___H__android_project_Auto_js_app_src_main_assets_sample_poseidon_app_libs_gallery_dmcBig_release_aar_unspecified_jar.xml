@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_aars__:H.\android_project\Auto.js\app\src\main\assets\sample\poseidon\app\libs\gallery-dmcBig-release.aar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/gallery-dmcBig-release.aar/630ca33dc681f681ed39fb8392791546/jars/libs/chrisbanes-photoview-1.2.4.jar!/" />
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/gallery-dmcBig-release.aar/630ca33dc681f681ed39fb8392791546/jars/classes.jar!/" />
+      <root url="file://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/gallery-dmcBig-release.aar/630ca33dc681f681ed39fb8392791546/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

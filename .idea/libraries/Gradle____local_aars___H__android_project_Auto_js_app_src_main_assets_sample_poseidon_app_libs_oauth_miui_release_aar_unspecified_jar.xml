@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_aars__:H.\android_project\Auto.js\app\src\main\assets\sample\poseidon\app\libs\oauth-miui-release.aar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/oauth-miui-release.aar/d3a9cdd31ffbddede5f0b1cb9f07671f/jars/libs/xiaomi-oauth.1.6.6.jar!/" />
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/oauth-miui-release.aar/d3a9cdd31ffbddede5f0b1cb9f07671f/jars/classes.jar!/" />
+      <root url="file://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/oauth-miui-release.aar/d3a9cdd31ffbddede5f0b1cb9f07671f/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

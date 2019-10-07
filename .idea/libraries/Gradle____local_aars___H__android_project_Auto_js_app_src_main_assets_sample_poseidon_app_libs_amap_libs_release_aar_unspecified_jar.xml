@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_aars__:H.\android_project\Auto.js\app\src\main\assets\sample\poseidon\app\libs\amap-libs-release.aar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/amap-libs-release.aar/252462c6abdb6ccb91837c6d5ed7acec/jars/libs/AMap_Location_V4.2.0_20180809.jar!/" />
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/amap-libs-release.aar/252462c6abdb6ccb91837c6d5ed7acec/jars/libs/AMap_Search_V6.1.0_20180330.jar!/" />
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/amap-libs-release.aar/252462c6abdb6ccb91837c6d5ed7acec/jars/classes.jar!/" />
+      <root url="file://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/amap-libs-release.aar/252462c6abdb6ccb91837c6d5ed7acec/res" />
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/amap-libs-release.aar/252462c6abdb6ccb91837c6d5ed7acec/jars/libs/Android_Map3D_SDK_V6.4.1_20180906.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

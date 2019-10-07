@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_aars__:H.\android_project\Auto.js\app\src\main\assets\sample\poseidon\app\libs\aps-igexin-release.aar:unspecified@jar">
+    <CLASSES>
+      <root url="file://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/aps-igexin-release.aar/e201dc6833876587981a5d2752714a35/res" />
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/aps-igexin-release.aar/e201dc6833876587981a5d2752714a35/jars/classes.jar!/" />
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/aps-igexin-release.aar/e201dc6833876587981a5d2752714a35/jars/libs/GetuiSDK4.3.5.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

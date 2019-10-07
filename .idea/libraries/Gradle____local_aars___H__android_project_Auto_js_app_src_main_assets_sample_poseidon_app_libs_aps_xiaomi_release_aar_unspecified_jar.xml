@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_aars__:H.\android_project\Auto.js\app\src\main\assets\sample\poseidon\app\libs\aps-xiaomi-release.aar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/aps-xiaomi-release.aar/c2c60ba570f28b6ef64a061cd70a457a/jars/classes.jar!/" />
+      <root url="file://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/aps-xiaomi-release.aar/c2c60ba570f28b6ef64a061cd70a457a/res" />
+      <root url="jar://H:/BaiduYunDownload/android-gradle/.gradle/caches/transforms-1/files-1.1/aps-xiaomi-release.aar/c2c60ba570f28b6ef64a061cd70a457a/jars/libs/MiPush_SDK_Client_3_6_12.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
