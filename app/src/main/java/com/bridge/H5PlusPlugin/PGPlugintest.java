@@ -34,27 +34,12 @@ public class PGPlugintest extends StandardFeature
     public String get_private_key(IWebview pWebview, JSONArray array){   //,
 
      //   String ReturnValue="我是插件1";
-        String ReturnValue="MIICXAIBAAKBgQCXF3UtKoitGrRaAyLAHhXzBQbv58GdMK9llS7zn2EZ7LnG4sqc" +
-                "4U5KgEX+WeB9qP7lw1cklxh1BoTIeZl0TCmF5otCuN6r+4uxQKNI5DcMRgSM9zMo" +
-                "eFPX1jF8cUijB8nxixl58xz6yoVMz8XTGQ9piR8lVLoFHTYHtnRE6ZV6YwIDAQAB" +
-                "AoGAKePNDvqt7iBrRFF+PvmYaEpKhBUjLuuilW1pGQ5lI4TodOXH+vrUc/9gaIaO" +
-                "oQhLs3QXIwPpOfjWs6ZTD1VWZWQmTveDBatV+wHwFmWeLFTReELIYXbi22Ylqkmj" +
-                "MBau/TU15nUlt/D7IXo7eVlAdimBZIl4KHaexky1I4X1UJECQQDwWk9SG7O79dEH" +
-                "6z5KfiSf8WZaZpHW3x3A/O8fWfJUh4SpY6yhRGtG0eUvP/mY+ElAR6EiIfrZjiB2" +
-                "LmG7jG9tAkEAoO2IU4tNCCnkR8dk1OOC3n2X4sHDsrmIyOldvJg+Nqr/H9PmsZCw" +
-                "yH9EuRvu59h3PkgA7k7cqSo3DzG8lpffDwJBAIbjaBjAi0I1VraHA1JzMMLCi5q4" +
-                "baiVVvF0Ag8qP6HI3F7kHYH0D/CS43h9AusijJmSmY+6Wjm2Vel9ZkQHMJECQGlQ" +
-                "qbvK2QGzsKJM2i78KSQD20dZeQHYq6yYFHEczPIn28hve3TO9PJxX38oyaNOpVLL" +
-                "+lf6oivO5bN64ClJgH8CQHkxKUEizrsYmBY06+ebZ7OVw+O18dV4u39duCUZ5PUD" +
-                "IAR6SOiuWUNwqp3SKUSDzgVNs9f5dxRTBSuSbnGjbyU=";
+        String ReturnValue="MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAKhA+WvI7a4tlx9y7s1UPeifGpbNGBIIMGBS9hGyKWAyZ7tB1KjsTzU2uNLMlZWGMmkH7jzi7M6MA3OFzOEFEF8uSGpeerVsXHNI/TFjTUr/tBfmhfxjj5F3Budpl4njLYTks+K3vSbR8w1TEHd3q6lVpqtdMI7RihCi/C17Q7XLAgMBAAECgYEAp2Dbv6oHKHsaF6MShRkE7WE55kLpaybSWUCuojQGjTgXkWWP1Owgb+OcQbhcJn91rp7BFbj5sw/+bvHwOvn6qdbducUn03r1f3t/UOEoYpgc4nwHtLx3/hnn1lKreBvd3BD+3xMnYCHkaIYz0GGwHzjvzQS5D3lhENZb1lxNOGECQQDhcTIsAWc+zhLi77qRWC6NFKm/wLiL1adNWUGgkSjL5CcsN7vxWrf4AzgNTtHwuQFEje/kZ4M68WPxwpSxyhqXAkEAvw9aHKK0hrPLp4GYrnSyJPDHmKZR+lMjF2Nq+GeDUWiXQgvpoykzjepTitkSDZT2uIAKuYTw8MPj3xXUkLqo7QJBAIm0+1CmCsryVdcJWI0vsD+9P3NB5XiFKYy12MCb6q+gzczUvpjPMVDtpm96lgLU/1FA4ihCkoaOrN4gXXO8YEECQFcbMbMyfumW2TeiPzDyZTGwUN+InIFrG+mS2vcrglRAQg3LjpZjt2xxM+tusetdSeqt/bW9JXgvZxmTQ1lEsLUCQHsvqWyDGWA5YHVe7UGmuUwnjc27idxb+RXHXIFJsIIqkBW4+1J2GKjRqlKzAKXp11AjEE8DrognIu36P0otJm8=";
         return JSUtil.wrapJsVar(ReturnValue,true);
     }
     public String get_public_key(IWebview pWebview, JSONArray array){   //,
 
-        String ReturnValue="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCXF3UtKoitGrRaAyLAHhXzBQbv" +
-                "58GdMK9llS7zn2EZ7LnG4sqc4U5KgEX+WeB9qP7lw1cklxh1BoTIeZl0TCmF5otC" +
-                "uN6r+4uxQKNI5DcMRgSM9zMoeFPX1jF8cUijB8nxixl58xz6yoVMz8XTGQ9piR8l" +
-                "VLoFHTYHtnRE6ZV6YwIDAQAB";
+        String ReturnValue="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCoQPlryO2uLZcfcu7NVD3onxqWzRgSCDBgUvYRsilgMme7QdSo7E81NrjSzJWVhjJpB+484uzOjANzhczhBRBfLkhqXnq1bFxzSP0xY01K/7QX5oX8Y4+RdwbnaZeJ4y2E5LPit70m0fMNUxB3d6upVaarXTCO0YoQovwte0O1ywIDAQAB";
         return JSUtil.wrapJsVar(ReturnValue,true);
     }
     public String getimei(IWebview pWebview, JSONArray array){   //,
