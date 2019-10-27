@@ -18,6 +18,7 @@
 				font-family: uc-nexus-iconfont;
 				src: url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.woff) format('woff'), url(chrome-extension://pogijhnlcfmcppgimcaccdkmbedjkmhi/res/font_9qmmi8b8jsxxbt9.ttf) format('truetype')
 			}
+
 			[v-cloak] {
 				display: none;
 			}
@@ -63,7 +64,6 @@
 							<div class="mask"></div>
 							<div class="content">
 								<p class="p1">恭喜！达成小目标！</p>
-								<p class="money">+<span class="fasttask-money-text"></span>元</p>
 								<div class="operation" style="margin-top: 2rem;margin-left: 1.5rem;">
 									<!--<div class="go-invite">分享赚钱</div>-->
 									<div class="go-back event_close">继续赚钱</div>
@@ -82,7 +82,7 @@
 							</div>
 						</div>
 						<div class="page-content fastdetail page-fast-detail" data-wifiType="0">
-							<div class="desc">
+							<!-- <div class="desc">
 								<div class="partin-info pp-flex">
 									<div class="money">
 										<span class="add">+</span>
@@ -94,7 +94,7 @@
 											 class="s">30秒</i></span>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<div class="split"></div>
 							<div class="container">
 								<div class="container-title pp-flex pp-flex-left">
@@ -135,12 +135,11 @@
 													<div class="line"></div>
 													<p>第二步</p>
 												</div>
-												<p class="operation">打开App，如已完成安装，完成第二步即可【必须允许网络接入，否则奖励不到账】，然后点击【领取奖励】，完成任务。</p>
-												<div class="disabled down open-app event_open" @click="open">打开App</div>
+												<p class="operation">打开App（试玩类任务需试玩满一分钟），如已完成安装，完成第二步即可【必须允许网络接入，否则奖励不到账】，然后点击【领取奖励】，完成任务。</p>
+												<div class="disabled down event_open" @click="open">打开App</div>
 												<!-- <div AppKey="{{=it[i].AppKey}}" Packername="{{=it[i].Packername}}" class="disabled down open-app event_open">打开App</div> -->
 											</div>
 										</div>
-
 										<div class="operation-btn">
 											<div id="submit-button" class="disabled confirm enable event_finish" @click="finish">领取奖励</div>
 											<div @click="giveup_task" class="giveup">放弃任务</div>
@@ -159,6 +158,7 @@
 		<script src="js/jquery.min.js"></script>
 		<script src="js/myfun.js"></script>
 		<script src="js/vue.min.js"></script>
+		<script src="js/normal.js"></script>
 		<script>
 			var app = new Vue({
 				el: '#taskdetail',
@@ -169,7 +169,9 @@
 					img: '',
 					userId: '',
 					taskId: '',
-					packname: ''
+					packname: '',
+					taskType: '',
+					viewId: ''
 				},
 				mounted() {
 					var that = this;
@@ -181,13 +183,8 @@
 				},
 				methods: {
 					plusReady() {
-
 						let pars = plus.webview.currentWebview().pars;
 						let data = pars.taskdata;
-						Gmainviewid = pars.Gmainviewid;
-
-						console.log(JSON.stringify(pars))
-
 						this.userId = pars.userId;
 						this.taskId = data.taskId;
 						this.iurl = data.downloadUrl;
@@ -195,14 +192,13 @@
 						this.coin = data.coin;
 						this.name = data.taskName;
 						this.img = data.img;
-
+						this.taskType = data.taskType;
+						this.viewId = pars.viewId;
 						let app_exist = checkapp(this.packname);
 						if (app_exist == 1) {
 							$('.event_open').removeClass("disabled");
 						}
-						Gmainview = plus.webview.getWebviewById(Gmainviewid);
-						Glistview = plus.webview.getWebviewById('./tasklist.html')
-						Gdeatilview = plus.webview.getWebviewById('./taskdeatil.html');
+						Glistview = plus.webview.getWebviewById(this.viewId)
 						mui.init({
 							swipeBack: true,
 							beforeback: function() {
@@ -212,7 +208,6 @@
 								return true;
 							}
 						});
-
 						mui("body").on("tap", ".event_close", function() {
 							mui.fire(Glistview, 'Listener', {
 								action: "refresh"
@@ -240,27 +235,56 @@
 						if (app_exist == 1) {
 							plus.nativeUI.toast('已存在app，请直接打开');
 						} else {
-							console.log(this.iurl)
 							downloadWgt(this.iurl, "downloadcb()");
 							$('.event_open').removeClass("disabled");
 							// getjson("Stored_FindAppDown", "@UserID=N'" + UserID + "',@strToken=N'" + HAppKey + "'");
 						}
 					},
 					open() {
-						var install_state = checkapp(this.packname);
-						if (0 == install_state) {
-							alert('请完成下载安装');
-						} else {
-							openapp(this.packname);
-							$('.event_finish').removeClass("disabled");
-							DaoInterval();
-						}
+						// var schema = "snssdk1128://detail?id=6674528242147413251&gd_label=click_schema_xjys3";
+						// var schema = "";
+						// var install_state = checkapp(this.packname);
+						// if (0 == install_state) {
+						// 	alert('请完成下载安装');
+						// } else {
+						// 	this.hx_app(this.packname,schema);
+						// 	console.log(this.packname);
+						// 	if(this.incomeType == 0){
+						// 		$('.event_finish').removeClass("disabled");
+						// 	}else{
+						// 		DaoInterval();
+						// 	}
+						// }
+						openapp(this.packname,this.taskType);
+
+					},
+					hx_app(packname, schema) {
+						// if("1"==have){
+						// mui.toast("正在为您打开 ");
+						plus.runtime.openURL(schema, packname);
+						// }else{ 
+						// 	mui.toast("您还没有安装\""+zhname+"\" 正在为您自动下载");
+						// 	downloadWgt(durl,"downloadcb()");	
+						// }
 					},
 					finish() {
-						let param = {
+						let before_param = {
 							'userId': this.userId,
 							'taskId': this.taskId
-						}
+						};
+						let str_par = JSON.stringify(before_param);
+						let PUBLIC_KEY =
+							'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCoQPlryO2uLZcfcu7NVD3onxqWzRgSCDBgUvYRsilgMme7QdSo7E81NrjSzJWVhjJpB+484uzOjANzhczhBRBfLkhqXnq1bFxzSP0xY01K/7QX5oX8Y4+RdwbnaZeJ4y2E5LPit70m0fMNUxB3d6upVaarXTCO0YoQovwte0O1ywIDAQAB';
+						let PRIVATE_KEY =
+							'MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAKhA+WvI7a4tlx9y7s1UPeifGpbNGBIIMGBS9hGyKWAyZ7tB1KjsTzU2uNLMlZWGMmkH7jzi7M6MA3OFzOEFEF8uSGpeerVsXHNI/TFjTUr/tBfmhfxjj5F3Budpl4njLYTks+K3vSbR8w1TEHd3q6lVpqtdMI7RihCi/C17Q7XLAgMBAAECgYEAp2Dbv6oHKHsaF6MShRkE7WE55kLpaybSWUCuojQGjTgXkWWP1Owgb+OcQbhcJn91rp7BFbj5sw/+bvHwOvn6qdbducUn03r1f3t/UOEoYpgc4nwHtLx3/hnn1lKreBvd3BD+3xMnYCHkaIYz0GGwHzjvzQS5D3lhENZb1lxNOGECQQDhcTIsAWc+zhLi77qRWC6NFKm/wLiL1adNWUGgkSjL5CcsN7vxWrf4AzgNTtHwuQFEje/kZ4M68WPxwpSxyhqXAkEAvw9aHKK0hrPLp4GYrnSyJPDHmKZR+lMjF2Nq+GeDUWiXQgvpoykzjepTitkSDZT2uIAKuYTw8MPj3xXUkLqo7QJBAIm0+1CmCsryVdcJWI0vsD+9P3NB5XiFKYy12MCb6q+gzczUvpjPMVDtpm96lgLU/1FA4ihCkoaOrN4gXXO8YEECQFcbMbMyfumW2TeiPzDyZTGwUN+InIFrG+mS2vcrglRAQg3LjpZjt2xxM+tusetdSeqt/bW9JXgvZxmTQ1lEsLUCQHsvqWyDGWA5YHVe7UGmuUwnjc27idxb+RXHXIFJsIIqkBW4+1J2GKjRqlKzAKXp11AjEE8DrognIu36P0otJm8=';
+						let encrypt = new JSEncrypt();
+						encrypt.setPublicKey('-----BEGIN PUBLIC KEY-----' + PUBLIC_KEY + '-----END PUBLIC KEY-----');
+						let encrypted = encrypt.encrypt(str_par);
+						let param = {
+							'param': encrypted
+						};
+						// console.log('加密后数据:%o'+encrypted);
+
 						get_json('POST', 'task/task_success', true, param).then(function(res) {
 							if (res.code == 0) {
 								$('.fasttask-money-pop').css("display", "block");
@@ -282,22 +306,6 @@
 			function downloadcb() {
 				$('.event_open').removeClass("disabled");
 			}
-
-			// function Stored_FindApplication(data) {
-			// 	//执行抢到任务
-			// 	//exec [Stored_SaveApplicationSession] 
-			// 	//console.log(data[0]['AppKey']);
-			// 	//printobj(data[0]);
-			// 	$('.ff-ppnum')[0].innerHTML = data[0]['Amount'];
-			// 	HAppKey = data[0]['AppKey'];
-			// 	HAppName = data[0]['AppName'];
-			// 	HAmount = data[0]['Amount'];
-			// 	HTryDate = data[0]['TryDate'];
-			// 	$('#DaoInterval')[0].innerHTML = HTryDate + '秒';
-			// 	getjson("Stored_SaveApplicationSession", "@UserID=N'" + UserID + "',@AppID=N'" + AppID + "',@AppKey=N'" + data[0][
-			// 		'AppKey'
-			// 	] + "'");
-			// }
 
 			function Stored_FindAppDown(data) {
 				//	alert("data[0]['status'] is"+data[0]['status']);
@@ -349,18 +357,18 @@
 			function DaoInterval() {
 				var setTime;
 				$(document).ready(function() {
-					var time = 30;
+					var time = 60;
 					setTime = setInterval(function() {
-						if (time <= 0) {
+						if (time == 0) {
 							clearInterval(setTime);
-							enableLJ();
+							// enableLJ();
 							$('.event_finish')[0].innerHTML = "领取奖励";
+							$('.event_finish').removeClass("disabled");
 							return;
 						}
-
 						time--;
 						//mui.toast(time);
-						$('#DaoInterval')[0].innerHTML = time;
+						// $('#DaoInterval')[0].innerHTML = time;
 						$('.event_finish')[0].innerHTML = "领取奖励" + "(" + time + ")";
 					}, 1000);
 				});

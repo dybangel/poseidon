@@ -165,16 +165,15 @@
 			}
 
 			function plusReady() {
-
 				checkjine();
 				getvalue_plus();
 				let param = {
 					'userId':userId
 				}
 				get_json('POST', 'user/get_user_info', true, param).then(function(res) {
-					console.log(JSON.stringify(res))
 					if (res.code == 0) {
 						$('.event_amount')[0].innerHTML = "账户余额 : " + res.result.balance + "元 ";
+						userId = res.result.userInfo.userId;
 						Amount = res.result.balance;
 						if (type == 'wechat') {
 							$('.event_type_img')[0].setAttribute("src", "img/index/weichat.png");
@@ -191,7 +190,6 @@
 					}
 				});
 
-				
 				mui("body").on("tap", ".event_close", function() {
 					closeme();
 				});
@@ -217,7 +215,19 @@
 						if (type == 'wechat') {
 							console.log('微信提现')
 						} else if (type == 'alipay') {
-							console.log('支付宝提现')
+							let param = {
+								"money": event_tikuanjine,
+								"userId": userId
+							};
+							console.log(JSON.stringify(param))
+							get_json('POST', 'user/upload_withdraw_apply', true, param).then(function(res) {
+								if (res.code == 0) {
+									check_res(res.code, "提现成功");
+									location.reload();
+								} else {
+									check_res(res.code, res.message);
+								}
+							});
 						}
 					}
 				});

@@ -1,0 +1,212 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<title>海虹APP</title>
+		<!-- 		<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon"> -->
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="css/framework7-a286981f62.ios_min.css">
+		<link rel="stylesheet" type="text/css" href="css/index_min.css">
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+		<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+		<style>
+			.mydown{
+				margin-top: 4rem!important;
+			}
+			.nav-tip-content{
+				display: flex;
+				justify-content: space-between;
+				padding: 0 .4rem;
+				background: rgba(255,236,233,1);
+			}
+			.gonggao{
+				margin-top: -5px;
+				height: .5rem;
+				overflow: hidden;
+				font-size: .38rem;
+				font-family: PingFangSC-Regular;
+				font-weight: 400;
+				color: rgba(255, 255, 34);
+				display: flex;
+				align-items: center;
+			}
+			.mycav {
+				background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+				bottom: 0;
+				left: 0;
+				right: 0;
+				top: 0;
+				z-index: 1023;
+				position: fixed;
+			}
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+	<body class="global-web framework7-root">
+		<div class="statusbar-overlay"></div>
+		<div class="views" id="indexnew" v-cloak>
+			<div class="view view-main" data-page="index">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="left sliding event_userinfo">
+							<a class="index-setting">
+								<img src="images/index-setting.png">
+							</a>
+						</div>
+						<img class="index-logo-nav center1 event_wxtx" src="images/index-logo-nav0221.png" style="margin-left: 30%;">
+					</div>
+				</div>
+				<div class="pages navbar-through toolbar-through">
+					<div class="page " data-page="index">
+						<div class="page-content index page-index job2" style="overflow-x: hidden;">
+							<div class="block1" @click="cl_userinfo()">
+								<div class="item1">
+									<a class="index-user-info-link">
+										<img src="images/user-img-default.png">
+										<span>昵称：{{nickName}}</span>
+									</a>
+								</div>
+								<p class="item2"><a>用户余额</a></p>
+								<div class="item3">
+									<span>{{balance}}元</span>
+									<button type="button" class="check-app-running event_tixian">提现</button>
+								</div>
+								<div class="item4">
+									<img src="images/coin.png"></img>
+									<span>金币：{{coin}}</span>
+								</div>
+								<style>
+									/*插件的wrapper 这是关键， 覆盖插件默认切换效果为匀速*/
+									.swiper-wrapper {
+										transition-timing-function: linear;
+									}
+								</style>
+								<!--公告开始-->
+								<div class="gonggao block-tb-swiper swiper-container-horizontal" style="width: 500px;margin-top: 0.1rem;">
+									<div class="swiper-wrapper" style="width:40px;">
+										<div class="swiper-slide event_gonggao" style="color:floralwhite;">
+										</div>
+									</div>
+								</div>
+								<!--公告结束-->
+							</div>
+							<div class="block-activity1">
+							</div>
+							<div class="block2">
+								<div class="block2-type2">
+									<div class="left">
+										<a class="event_kuaisu">
+											<img src="images/index-middle-bg1.png">
+										</a>
+										<a class="list-col event_kuaisu">
+											<img src="images/index-middle-bg2.png">
+										</a>
+									</div>
+									<a @click="cl_st()">
+										<img class="right" src="images/index-middle-bg3.png">
+									</a>
+								</div>
+							</div>
+							<div class="block-tb event_readnews">
+								<div class="block-tb-mask"></div>
+								<p class="title">福利：每日阅读</p>
+								<div class="block-tb-swiper swiper-container-vertical">
+									<img src="images/taobao-trumpet.png">
+									<p class="fix-title" style="display: none;">专享阅读奖励红包，优惠每日领~</p>
+									<div class="swiper-wrapper" style="transform: translate3d(0px, -95px, 0px); transition-duration: 0ms;">
+										<div class="swiper-slide" data-swiper-autoplay="2000" data-swiper-slide-index="2" style="height: 19px;">
+											[阅读奖励] 专享阅读奖励红包，优惠每日领~
+										</div>
+										<div class="swiper-slide swiper-slide-prev" data-swiper-autoplay="2000" data-swiper-slide-index="3" style="height: 19px;">
+											[新版本上线] 安卓版阅读功能上线</div>
+										<div class="swiper-slide swiper-slide-active" data-swiper-autoplay="2000" data-swiper-slide-index="4" style="height: 19px;">
+											专享 阅读奖励红包，优惠每日领~</div>
+										<div class="swiper-slide swiper-slide-next" data-swiper-autoplay="2000" data-swiper-slide-index="5" style="height: 19px;">
+											[小编推荐 哈喽，检察官] 公平公正使我们的中级信仰，即使爱情也不能凌驾于之上
+										</div>
+									</div>
+								</div>
+								<img class="shopping-cart" src="images/taobao-shopping-cart.png">
+							</div>
+							<div class="nav-tip-content" style="margin-top: 0.2rem;">
+								<div>
+									<span class="num"></span>
+									<span></span></div>
+								<div style="color:#C9C9CE">--------</div>
+								<div>
+									<span class="num"></span>
+									<span style="color: red;">每天通过海虹唤醒下列APP得奖励</span></div>
+								<div style="color:#C9C9CE">--------</div>
+								<div>
+									<span class="num"></span>
+									<span></span></div>
+							</div>
+
+							<div class="block-activity2">
+							</div>
+							<ul class="block4">
+								<li @click="to_taskdetail(item)" v-for="item in applist">
+									<a class="external red-packet">
+										<img :src="item.img">
+										<p>{{item.taskName}}</p>
+									</a>
+								</li>
+							</ul>
+
+							<img class="footer" src="images/bottom-logo1228.png">
+						</div>
+						<!--新手教程弹框 E -->
+						<div class="fixed-index">
+							<a class="event_xinshoujiaocheng">
+								<img src="images/index-course.png">
+								<div class="video">
+									<video id="mediaPlay" poster="images/login-invite-video-poster-new.png">
+										<source src="https://cdn.qimai.cn/media/video/pphongbao.optimize.20180725.mp4">
+									</video>
+								</div>
+							</a>
+						</div>
+						<!-- Scrollable page content E -->
+					</div>
+					<!-- 新手引导弹窗-->
+<!-- 					<div class="new-user-pop" style="display: none;">
+						<div class="mask">
+							<div class="withdraw-block" style="top: 128.5px;">
+								<p class="withdraw-img">提现</p>
+								<img class="withdraw-text" src="images/withdraw-text.png">
+							</div>
+							<div class="task-block" style="top: 227.75px;">
+								<img class="task-img" src="images/index-middle-bg1.png">
+								<img class="task-text" src="images/task-text.png">
+							</div> -->
+							<!-- 							<p class="iknow" style="top: 367.75px;">我知道了</p> -->
+<!-- 						</div>
+					</div> -->
+					<!-- 					<div class="index-verify-success-pop">
+						<div class="mask" onclick="hidePop('.index-verify-success-pop')"></div>
+						<div class="content">
+							<p class="p1">恭喜您已实名认证通过，尊享两大特权</p>
+							<p class="p3" onclick="hidePop('.index-verify-success-pop')">好的</p>
+						</div>
+
+					</div> -->
+					<!-- Page, "data-page" contains page name  E-->
+				</div>
+				<!-- 				<div class="safari-private-mode">
+					<img class="bg-img" src="images/safari-private-mode.png" alt="">
+				</div> -->
+			</div>
+		</div>
+		<div class="mycav" id="coincav" data-loop="86400" style="display: none;z-index: 99999;">
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/vue.min.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script src="js/index_min-ea6fc6e183.js"></script>
+		<script src="js/myfun.js"></script>
+		<script src="js/indexhtml.js"></script>
+	</body>
+</html>

@@ -10314,9 +10314,9 @@ input[type=button].button.pp-no-submit,input[type=submit].button.pp-button {
 }
 
 .page-index .footer {
-    height: .67rem;
+    height: 1rem;
     display: block;
-    margin: .48rem auto 0
+    margin: 1rem auto 0
 }
 
 .index-adv-fixed {

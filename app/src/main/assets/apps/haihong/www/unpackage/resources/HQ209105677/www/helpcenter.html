@@ -1,0 +1,93 @@
+<html>
+	<head _wxhkphogpkobbkjccgfifhfjlahnoocnan_="shake_1.0">
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>HUI 列表</title>
+		<link rel="stylesheet" type="text/css" href="css/hui.css">
+		<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+		<style>
+			h1 {
+				padding: 0px 90px 0px 38px !important;
+			}
+		</style>
+	</head>
+	<body>
+
+		<header class="hui-header">
+			<div id="hui-back" class="event_close"></div>
+			<h1>帮助中心</h1>
+		</header>
+		<div class="hui-wrap" id="helpcenter">
+			<div class="hui-list" style="">
+				<ul id="sql_helpcenter_container">
+					<li class="event_deatil" v-for="item in list" @click="to_helpdetail(item)">
+						<a href="javascript:hui.toast('Hello Hcoder UI !');">
+							<div class="hui-list-text">
+								<div class="hui-list-text-content">
+									{{item.id}}.{{item.question}}
+								</div>
+								<div class="hui-list-info">
+									查看 <span class="hui-icons hui-icons-right"></span>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/myfun.js"></script>
+<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			var app = new Vue({
+				el: '#helpcenter',
+				data: {
+					list: ''
+				},
+				mounted() {
+					var that = this;
+					mui.ready(function() {
+						mui.plusReady(function() {
+							that.plusReady();
+						})
+					});
+				},
+				methods: {
+					plusReady() {
+						var that = this;
+
+						mui.init({
+							swipeBack: true
+						});
+
+						mui("body").on("tap", ".event_close", function() {
+							// mui.fire(Gmainview, 'Listener', {
+							// 	action: "refresh"
+							// });
+							closeme();
+						});
+						
+						let param = {}
+						get_json('GET', 'home/get_question_list', true, param).then(function(res) {
+							console.log(JSON.stringify(res))
+							if (res.code == 0) {
+								that.list = res.result
+							} else {
+								check_res(res.code, res.message);
+							}
+						});
+
+					},
+					to_helpdetail(e) {
+						var data = {
+							// "Gmainviewid": Gmainviewid,
+							'detail': e.answer
+						};
+						openwin_plus("./helpcenterdetail.html", data);
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

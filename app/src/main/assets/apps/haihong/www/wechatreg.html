@@ -3,75 +3,65 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<title>HUI Form</title>
 		<link rel="stylesheet" type="text/css" href="css/hui.css" />
 		<link rel="stylesheet" type="text/css" href="css/mystyle.css">
-
-		<script type="text/javascript" src="js/doT.min.js"></script>
-		<script type="text/javascript" src="js/common.js"></script>
-		<script src="js/mui.min.js"></script>
-		<script src="js/jquery.min.js"></script>
-		<script src="js/myfun.js"></script>
 		<style>
-			.hui-form-items div{
-		         width:28%;
-		    }
-			.hui-header h1{
-			    padding: 0px 90px 0px 38px!important;
-		    }
 			.event_bangding{
 				display: none;
 				margin-top:15px;
 				width: 70%;
 				margin-left: 15%;
 			}
+			.event_headimgurl{
+				width: 4rem; height: 4rem;
+			}
 		</style>
 	</head>
-	<body style="background:#FCFCFC;">
+	<body>
 		<header class="hui-header">
 			<div id="hui-back"></div>
 			<h1>微信绑定</h1>
 		</header>
 		<div class="hui-wrap">
-			<form style="padding:28px 10px;" class="hui-form" id="form1">
+			<form class="hui-form" id="form1">
 				<div class="hui-form-items">
 					<div class="hui-form-items-title">微信头像</div>
-					<img style="width: 4rem; height: 4rem;" class="event_headimgurl"></img>
+					<img class="event_headimgurl"></img>
 				</div>
 				<div class="hui-form-items">
 					<div class="hui-form-items-title">微信昵称</div>
-					<input type="text" disabled="disabled" class="hui-input event_nickname" placeholder="" name="phonenum" />
+					<input type="text" disabled="disabled" class="hui-input event_nickname" name="phonenum" />
 				</div>
-
-				<button type="button" class="hui-button hui-button-large hui-primary event_bangding">绑定微信</button>
 			</form>
+			<button type="button" class="hui-button hui-button-large hui-primary event_bangding">绑定微信</button>
 		</div>
-		<script type="text/javascript" src="js/hui.js"></script>
-		<script type="text/javascript" src="js/hui-form.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/myfun.js"></script>
 		<script type="text/javascript">
+			mui.ready(function() {
+				mui.plusReady(function() {
+					plusReady();
+				})
+			})
 			var auths = {};
-			Glogout_state = 1; //微信注销，默认为1 标识正常，如果报错会变成0
+			// Glogout_state = 1; //微信注销，默认为1 标识正常，如果报错会变成0
 			function makeservice() {
 				// 获取登录认证通道 
 				plus.oauth.getServices(function(services) {
 					var txt = "";
 					for (var i in services) {
 						var service = services[i];
-						//console.log(service.id+": "+service.authResult+", "+service.userInfo);
 						if ('weixin' == service.id) {
 							auths[service.id] = service;
 						}
 					}
-					console.log(JSON.stringify(auths))
-					//info.innerText=txt;
 				}, function(e) {
 					outLine("获取登录认证失败：" + e.message);
 				});
 			}
-
 			// 登录认证
-			function login(id) {
-				console.log('我执行了')
+			function login(id,action) {
 				var auth = auths[id];
 				if (auth) {
 					var w = null;
@@ -87,14 +77,10 @@
 					auth.login(function() {
 						w && w.close();
 						w = null;
-						console.log("登录认证成功：");
-						//alert(JSON.stringify(auth.authResult));
-						userinfo(auth);
+						userinfo(auth,action);
 					}, function(e) {
 						w && w.close();
 						w = null;
-						//outLine("登录认证失败888：");
-						//outLine("["+e.code+"]："+e.message);
 						plus.nativeUI.alert("原因:" + e.message, null, "微信绑定失败");
 					});
 				} else {
@@ -103,145 +89,131 @@
 				}
 			}
 			// 获取用户信息
-			function userinfo(a) {
-				console.log("----- 获取用户信息 -----");
+			function userinfo(a,action) {
 				a.getUserInfo(function() {
-					console.log("获取用户信息成功：");
-					var nickname = a.userInfo.nickname || a.userInfo.name || a.userInfo.miliaoNick;
+					var nickname = a.userInfo.nickname;
+					// if ("1" == Glogout_state) {
+					var openid = a.userInfo['openid'];
+					if (action == 'bind') {
+						plus.nativeUI.alert("欢迎“" + nickname + "”登录！");
+						let param = {
+							'machineCode': deviceId,
+							'wechatId': openid
+						}
+						get_json('POST', 'login/bind_wechat', true, param).then(function(res) {
+							if (res.code == 0) {
+								let param = {
+									"icon": a.userInfo['headimgurl'],
+									"machineCode": deviceId,
+									"userId": userId,
+									"userName": a.userInfo['nickname'],
+									"wechatId": a.userInfo['openid']
+								}
+								get_json('POST', 'user/upload_icon', true, param).then(function(res) {
+									if (res.code == 0) {
 
-					if ("1" == Glogout_state) {
-						var openid = a.userInfo['openid'];
-						if ("bangding" == Gbangding_state) {
-							plus.nativeUI.alert("欢迎“" + nickname + "”登录！");
-							let param = {
-								'machineCode' : deviceId,
-								'wechatId':openid
-							}
-							get_json('POST', 'login/bind_wechat', true, param).then(function(res) {
-								if (res.code == 0) {
-									let param = {
-										  "icon": a.userInfo['headimgurl'],
-										  "machineCode": deviceId,
-										  "userId": userId,
-										  "userName": a.userInfo['nickname'],
-										  "wechatId": a.userInfo['openid']
+									} else {
+										check_res(res.code, res.message)
 									}
-									get_json('POST', 'user/upload_icon', true, param).then(function(res) {
-										if (res.code == 0) {
-											
-										} else {
-											check_res(res.code, res.message)
-										}
-									});
-								} else {
-									check_res(res.code, res.message)
-								}
-							});
-						}else{
-							let param = {
-								  "icon": a.userInfo['headimgurl'],
-								  "machineCode": deviceId,
-								  "userId": userId,
-								  "userName": a.userInfo['nickname'],
-								  "wechatId": a.userInfo['openid']
+								});
+							} else {
+								check_res(res.code, res.message)
 							}
-							get_json('POST', 'user/upload_icon', true, param).then(function(res) {
-								if (res.code == 0) {
-									console.log('上传成功')
-							        //reload
-								} else {
-									check_res(res.code, res.message)
-								}
-							});
-						}
+						});
 					} else {
-						if ("bangding" == Gbangding_state) {
-							alert("网络有延迟\n建议再绑定试一次");
+						let param = {
+							"icon": a.userInfo['headimgurl'],
+							"machineCode": deviceId,
+							"userId": userId,
+							"userName": a.userInfo['nickname'],
+							"wechatId": a.userInfo['openid']
 						}
+						get_json('POST', 'user/upload_icon', true, param).then(function(res) {
+							if (res.code == 0) {
+								plus.nativeUI.toast('更新用户信息成功');
+								
+							} else {
+								check_res(res.code, res.message)
+							}
+						});
 					}
+					// } else {
+					// 	if ("bangding" == Gbangding_state) {
+					// 		alert("网络有延迟\n建议再绑定试一次");
+					// 	}
+					// }
 
 				}, function(e) {
-					//alert("获取用户信息失败：");
-					//outLine("["+e.code+"]："+e.message);
 					plus.nativeUI.alert("获取用户信息失败！", null, "登录");
 				});
 			}
 			// 注销登录
-			function logoutAll() {
-				//outSet("----- 注销登录认证 -----");
-				for (var i in auths) {
-					logout(auths[i]);
-				}
-			}
+			// function logoutAll() {
+			// 	for (var i in auths) {
+			// 		logout(auths[i]);
+			// 	}
+			// }
 
-			function logout(auth) {
-				auth.logout(function() {
-
-				}, function(e) {
-
-					Glogout_state = 0;
-
-				});
-			}
+			// function logout(auth) {
+			// 	auth.logout(function() {
+			// 	}, function(e) {
+			// 		Glogout_state = 0;
+			// 	});
+			// }
 
 			function plusReady() {
 				getvalue_plus();
 				makeservice();
-                get_wechat_info();
-				mui("body").on("tap", ".event_close",
-					function() {
-						closeme();
-					});
-				mui("body").on("tap", ".event_bangding",
-					function() {
-						Glogout_state = 1;
-						logoutAll();
-						Gbangding_state = "bangding"; //绑定状态要更新数据库，同步头像不用
-						login("weixin");
-					});
-				//event_headimgurl
-				mui("body").on("tap", ".event_headimgurl",
-					function() {
-
-						Glogout_state = 1;
-						logoutAll();
-						Gbangding_state = "syncheadimgurl"; //绑定状态要更新数据库，同步头像不用
-						login("weixin");
-					});
-
+				get_wechatinfo();
+				mui("body").on("tap", ".event_close", function() {
+					closeme();
+				});
+				mui("body").on("tap", ".event_bangding", function() {
+					// Glogout_state = 1;
+					// logoutAll();
+					// Gbangding_state = "bangding"; //绑定状态要更新数据库，同步头像不用
+					login("weixin",'bind');
+				});
+				mui("body").on("tap", ".event_headimgurl", function() {
+					// Glogout_state = 1;
+					// logoutAll();
+					// Gbangding_state = "syncheadimgurl"; //绑定状态要更新数据库，同步头像不用
+					login("weixin",'update');
+				});
 			}
-			function get_wechat_info(){
+
+			function get_wechatinfo() {
 				var param = {
-					'machineCode':deviceId
+					'machineCode': deviceId
 				}
 				get_json('POST', 'login/get_user_id', true, param).then(function(res) {
 					if (res.code == 0) {
-						if(res.result.bindWechat == true){
+						if (res.result.bindWechat) {
 							let param = {
-								'userId' : userId
+								'userId': userId
 							}
 							get_json('POST', 'user/get_user_info', true, param).then(function(res) {
-								console.log(JSON.stringify(res))
 								if (res.code == 0) {
-							        $('.event_nickname').val(res.result.nickName);
-									$('.event_headimgurl')[0].setAttribute("src", res.result.icon);
+									reset_content(res.result.userInfo);
 								} else {
 									check_res(res.code, res.message)
 								}
 							});
-						}else{
-							$('.event_bangding').css("display", "block");
+						} else {
+							show_bindbtn();
 						}
 					} else {
 						check_res(res.code, res.message)
 					}
 				});
 			}
-			mui.ready(function() {
-				mui.plusReady(function () {
-				    plusReady();
-				})
-			})
+			function reset_content(e){
+				$('.event_nickname').val(e.nickName);
+				$('.event_headimgurl')[0].setAttribute("src", e.icon);
+			}
+			function show_bindbtn(){
+				$('.event_bangding').css("display", "block");
+			}
 		</script>
 	</body>
 </html>

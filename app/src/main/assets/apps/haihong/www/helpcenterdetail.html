@@ -1,65 +1,42 @@
+<!DOCTYPE html>
 <html>
-	<head _wxhkphogpkobbkjccgfifhfjlahnoocnan_="shake_1.0">
+	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<title>HUI</title>
 		<link rel="stylesheet" type="text/css" href="css/hui.css">
 		<link rel="stylesheet" type="text/css" href="css/mystyle.css">
-		<script src="js/doT.min.js"></script>
-		<script src="js/mui.min.js"></script>
-		<script src="js/jquery.min.js"></script>
-		<script src="js/myfun.js"></script>
 		<style type="text/css">
 			body {
 				background: #FFF;
 			}
-
-			.line {
-				height: 20px;
-			}
 		</style>
-
 	</head>
 	<body>
-		<style>
-			.hui-header h1{
-			    padding: 0px 90px 0px 38px!important;
-		}
-	</style>
 		<header class="hui-header">
 			<div id="hui-back" class="event_close"></div>
 			<h1>帮助中心</h1>
 		</header>
 		<div class="hui-wrap">
-			<div class="hui-common-title" style="margin-top:15px;">
-				<div class="hui-common-title-line"></div>
-				<!--<div class="hui-common-title-txt">带有修饰的标题</div>-->
-				<div class="hui-common-title-line"></div>
-			</div>
 			<div class="hui-content" style="padding:10px;">
 				<p class="event_deatil"></p>
 			</div>
 		</div>
-
-		<script src="js/hui.js" type="text/javascript" charset="utf-8">
-
-		</script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/myfun.js"></script>
 		<script>
+			mui.ready(function() {
+				mui.plusReady(function () {
+				    plusReady();
+				});
+			});
 			function plusReady() {
 				getvalue_plus();
-				$('.event_deatil')[0].innerHTML = detail;
-				//getjson('getinfo|template','memberid=123&pid=asdf');
+				$('.event_deatil')[0].innerHTML = answer;
 				mui("body").on("tap", ".event_close", function() {
 					closeme();
 				});
 			}
-			mui.ready(function() {
-				if (window.plus) {
-					plusReady();
-				} else {
-					document.addEventListener('plusready', plusReady, false);
-				};
-			})
 		</script>
 	</body>
 </html>

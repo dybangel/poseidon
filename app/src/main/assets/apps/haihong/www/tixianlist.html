@@ -33,7 +33,7 @@
 						</div>
 					</div>
 				</a>
-				<a class="event_weixin_tixian">
+				<!-- 				<a class="event_weixin_tixian">
 					<div class="hui-list-icons">
 						<img src="img/index/weichat.png" />
 					</div>
@@ -43,7 +43,7 @@
 							查看 <span class="hui-icons hui-icons-right"></span>
 						</div>
 					</div>
-				</a>
+				</a> -->
 			</div>
 		</div>
 
@@ -57,14 +57,22 @@
 
 		function plusReady() {
 			getvalue_plus();
+			Gmainview = plus.webview.getWebviewById(Gmainviewid);
 			mui.init({
-				swipeBack: true,
+				swipeBack: true, //启用右滑关闭功能
+				beforeback: function() { //监听物理返回按键的方法
+					mui.fire(Gmainview, 'Listener', {
+						action: "refresh"
+					});
+					return true;
+				}
 			});
-
 			mui("body").on("tap", ".event_close", function() {
+				mui.fire(Gmainview, 'Listener', {
+					action: "refresh"
+				});
 				closeme();
 			});
-
 			mui("body").on("tap", ".event_alipay_tixian", function() {
 				Stored_FindMember('alipay');
 
@@ -77,11 +85,11 @@
 		function Stored_FindMember(type) {
 			var par = {
 				'type': type,
-				'userId':userId,
-				'deviceId':deviceId
+				'userId': userId,
+				'deviceId': deviceId
 			}
 			var param = {
-				'machineCode' : deviceId
+				'machineCode': deviceId
 			}
 			if (type == 'wechat') {
 				get_json('POST', 'login/get_user_id', true, param).then(function(res) {

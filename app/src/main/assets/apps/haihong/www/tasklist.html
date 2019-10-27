@@ -1,5 +1,5 @@
-<html lang="zh" class="pixel-ratio-2 retina ios ios-9 ios-9-1 ios-gt-8 ios-gt-7 ios-gt-6 watch-active-state" style="font-size: 32px;">
-	<head _wxhkphogpkobbkjccgfifhfjlahnoocnan_="shake_1.0">
+<html>
+	<head>
 		<title></title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -61,7 +61,7 @@
 								<div>--------</div>
 								<div>
 									<span class="num">2</span>
-									<span>打开试玩</span></div>
+									<span>打开应用</span></div>
 								<div>--------</div>
 								<div>
 									<span class="num">3</span>
@@ -102,8 +102,15 @@
 												</div>
 												<div class="item-inner item-right">
 													<div class="item-title-row">
-														<div class="item-title">+
-															<span class="ff-ppnum">{{ongoinglist.coin}}</span>金币</div>
+														<div class="item-title">
+															<div v-show="ongoinglist.incomeType === 0">
+																<span class="ff-ppnum">{{ongoinglist.coin}}</span>
+																金币
+															</div>
+															<div v-show="ongoinglist.incomeType === 1">
+																<span class="ff-ppnum">{{ongoinglist.money}}</span>元
+															</div>
+														</div>
 													</div>
 												</div>
 											</a>
@@ -112,7 +119,36 @@
 								</div>
 								<div class="list-block media-list fasttask-list">
 									<ul class="type-fast">
-										<li class="item-divider">快速返奖 &nbsp;</li>
+										<li class="item-divider">唤醒任务 &nbsp;</li>
+										<li @click="to_taskdetail_fast(item)" v-for="item in unsuclist">
+											<a href="#" class="item-link item-content active">
+												<div class="item-media">
+													<img style="-webkit-filter: blur(0px);" :src="item.img" width="44"></div>
+												<div class="item-inner">
+													<div class="item-title-row">
+														<div class="item-title">{{item.taskName}}</div>
+													</div>
+													<div class="item-subtitle">
+														<div class="item-title fast-tag tag-gray">剩{{item.taskCount}}份</div>
+														<div class="item-title fast-tag tag-red">允许联网</div>
+													</div>
+												</div>
+												<div class="item-inner item-right">
+													<div class="item-title-row">
+														<div class="item-title">
+															<div v-show="item.incomeType === 0">
+																<span class="ff-ppnum">{{item.coin}}</span>
+																金币
+															</div>
+															<div v-show="item.incomeType === 1">
+																<span class="ff-ppnum">{{item.money}}</span>元
+															</div>
+														</div>
+													</div>
+												</div>
+											</a>
+										</li>
+<!-- 										<li class="item-divider">唤醒任务 &nbsp;</li>
 										<li @click="to_taskdetail_fast(item)" v-for="item in unsuclist">
 											<a href="#" class="item-link item-content active">
 												<div class="item-media">
@@ -133,7 +169,28 @@
 													</div>
 												</div>
 											</a>
-										</li>
+										</li> -->
+<!-- 										<li v-for="item in fakelist" style="opacity: 0.5;">
+											<a href="#" class="item-link item-content active">
+												<div class="item-media">
+													<img style="-webkit-filter: blur(0px);" :src="item.img" width="44"></div>
+												<div class="item-inner">
+													<div class="item-title-row">
+														<div class="item-title">{{item.taskName}}</div>
+													</div>
+													<div class="item-subtitle">
+														<div class="item-title fast-tag tag-gray">剩{{item.taskCount}}份</div>
+														<div class="item-title fast-tag tag-red">允许联网</div>
+													</div>
+												</div>
+												<div class="item-inner item-right">
+													<div class="item-title-row">
+														<div class="item-title">+
+															<span class="ff-ppnum">{{item.coin}}</span>金币</div>
+													</div>
+												</div>
+											</a>
+										</li> -->
 									</ul>
 								</div>
 								<div class="list-block media-list fasttask-list">
@@ -156,7 +213,13 @@
 												<div class="item-inner item-right">
 													<div class="item-title-row">
 														<div class="item-title">
-															+<span class="ff-ppnum">{{item.coin}}</span>金币
+															<div v-show="item.incomeType === 0">
+																<span class="ff-ppnum">{{item.coin}}</span>
+																金币
+															</div>
+															<div v-show="item.incomeType === 1">
+																<span class="ff-ppnum">{{item.money}}</span>元
+															</div>
 														</div>
 													</div>
 												</div>
@@ -168,7 +231,7 @@
 						</div>
 					</div>
 
-					<div class="withdraw-verify-pop withdraw-verify-need event_alert" style="">
+<!-- 					<div class="withdraw-verify-pop withdraw-verify-need event_alert" style="">
 						<div class="pop-mask" onclick="hidePop('.withdraw-verify-pop')"></div>
 						<div class="content">
 							<div class="pop-close">
@@ -180,9 +243,9 @@
 							<div class="go-verify">我在想想</div>
 							<div class="go-verify">确认</div>
 						</div>
-					</div>
+					</div> -->
 
-					<div class="withdraw-verify-pop withdraw-verifying">
+<!-- 					<div class="withdraw-verify-pop withdraw-verifying">
 						<div class="pop-mask" onclick="hidePop('.withdraw-verifying')"></div>
 						<div class="content">
 							<img src="images/verifying.png">
@@ -209,7 +272,7 @@
 							<p class="text1">任务已抢到，请在55分钟内按要求完成任务</p>
 							<p class="text2">正在跳转中…</p>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<div class="safari-private-mode">
@@ -238,21 +301,42 @@
 		<script src="js/myfun.js"></script>
 		<script src="js/vue.min.js"></script>
 		<script>
-			window.addEventListener('Listener', function(event) {
-				var action = event.detail.action;
-				if ("refresh" == action) {
-					location.reload();
-				}
-			})
-			// window.addEventListener('refresh',function(){
-			//      location.reload();//父页面仅仅是刷新页面，当然也可以自定义逻辑函数写在里面 
-			// })
 			var app = new Vue({
 				el: '#tasklist',
 				data: {
 					suclist: '',
 					unsuclist: '',
-					ongoinglist: ''
+					ongoinglist: '',
+					fakelist:[{
+						'img':'img/scrollNews.png',
+						'taskCount':'20',
+						'taskName':'快看资讯',
+						'coin':'200'
+					},{
+						'img':'img/scrollNews.png',
+						'taskCount':'20',
+						'taskName':'快看资讯',
+						'coin':'200'
+					},{
+						'img':'img/scrollNews.png',
+						'taskCount':'20',
+						'taskName':'快看资讯',
+						'coin':'200'
+					},{
+						'img':'img/scrollNews.png',
+						'taskCount':'20',
+						'taskName':'快看资讯',
+						'coin':'200'
+					}]
+				},
+				created() {
+					var that = this;
+					window.addEventListener('Listener', function(event) {
+						var action = event.detail.action;
+						if ("refresh" == action) {
+							that.get_data();
+						}
+					})
 				},
 				mounted() {
 					var that = this;
@@ -268,19 +352,23 @@
 						let param = {
 							'userId': userId
 						};
-						get_json('POST', 'task/get_task_list', true, param).then(function(res) {
-							// console.log(JSON.stringify(res))
+						let param1 = {
+							'userId': userId,
+							"taskType": 0
+						};
+						get_json('POST', 'task/get_task_list', true, param1).then(function(res) {
 							if (res.code == 0) {
 								that.unsuclist = res.result;
 							} else {
+								that.unsuclist = '';
 								check_res(res.code, res.message);
 							}
 						});
 						get_json('POST', 'task/get_success_task_list', true, param).then(function(res) {
-							// console.log(JSON.stringify(res))
 							if (res.code == 0) {
 								that.suclist = res.result;
 							} else {
+								that.suclist = '';
 								check_res(res.code, res.message);
 							}
 						});
@@ -288,6 +376,7 @@
 							if (res.code == 0) {
 								that.ongoinglist = res.result;
 							} else {
+								that.ongoinglist = '';
 								check_res(res.code, res.message);
 							}
 						});
@@ -325,7 +414,7 @@
 					},
 					to_taskdetail_ongoing(e) {
 						var datas = {
-							"Gmainviewid": Gmainviewid,
+							"viewId": plus.webview.currentWebview().id,
 							'userId': userId,
 							'taskdata': e
 						};
@@ -333,7 +422,7 @@
 					},
 					to_taskdetail_fast(e){
 						var datas = {
-							"Gmainviewid": Gmainviewid,
+							"viewId": plus.webview.currentWebview().id,
 							'userId': userId,
 							'taskdata': e
 						};
@@ -377,10 +466,8 @@
 										'userId': userId,
 										'taskId': taskId
 									};
-									console.log(JSON.stringify(param));
 									get_json('POST', 'task/get_task', true, param).then(function(res) {
 										if (res.code == 0) {
-											console.log(JSON.stringify(res))
 											openwin_plus("./taskdeatil.html", datas);
 										} else {
 											check_res(res.code, res.message);

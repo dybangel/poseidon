@@ -1,0 +1,425 @@
+<html>
+	<head>
+		<title></title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="css/framework7-a286981f62.ios_min.css">
+		<link rel="stylesheet" type="text/css" href="css/index_min.css">
+		<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body class="global-web">
+		<!-- 		<div class="statusbar-overlay"></div> -->
+		<!-- Views -->
+		<div class="views">
+			<div class="view view-main" data-page="fasttask">
+				<div class="navbar">
+					<!-- 					<div class="navbar-inner navbar-on-left">
+						<div class="left sliding" style="transform: translate3d(-25px, 0px, 0px);">
+							<a class="index-setting" href="/index.php/index/other" onclick="_hmt.push(['_trackEvent', '首页', '顶部账户']);">
+								<img src="images/index-setting.png"></a>
+						</div>
+						<img class="index-logo-nav center" src="images/logo.png" style="left: -67.5px;">
+					</div> -->
+					<div class="navbar-inner pp-tab fasttask navbar-on-center">
+						<div class="left1 sliding event_close">
+							<a href="#" class="back link icon-only">
+								<i class="icon icon-back" style=""></i>
+							</a>
+						</div>
+						<div class="center1 sliding" style="margin-right: 39%;">任务列表</div>
+						<!--<div class="right sliding" style="transform: translate3d(0px, 0px, 0px);">
+              <a href="/index.php/fasttask/fastRecords" class="link icon-only">截图审核</a></div>-->
+					</div>
+				</div>
+				<!--灰色遮罩层-->
+				<div class="login-alert " id="alert-bg" data-loop="86400" style="display: none;z-index: 999;">
+				</div>
+
+				<div class="pages navbar-through toolbar-through">
+					<!-- Page, "data-page" contains page name -->
+					<div class="page page-on-left" data-page="index">
+						<!-- Scrollable page content -->
+						<div class="page-content index page-index job2">
+
+							<img class="footer" src="images/bottom-logo1228.png"></div>
+					</div>
+
+					<div class="page page-on-center" data-page="fasttask">
+						<div class="nav-tip no-scroll">
+							<div class="nav-tip-content">
+								<div>
+									<span class="num">1</span>
+									<span>下载应用</span></div>
+								<div>--------</div>
+								<div>
+									<span class="num">2</span>
+									<span>打开试玩</span></div>
+								<div>--------</div>
+								<div>
+									<span class="num">3</span>
+									<span>领取现金</span></div>
+							</div>
+						</div>
+						<!--<div class="fasttask-wifi">
+              <div class="mask" onclick="hidePop('.fasttask-wifi')"></div>
+              <div class="content">
+                <div class="fasttask-wifi-close">
+                  <div class="icon" onclick="hidePop('.fasttask-wifi')">×</div>
+                  <div class="line"></div>
+                </div>
+                <img src="/public/app/img/fasttask/ding.png">
+                <p>请在相同网络下完成任务。即如果使用4G开始任务，需要在4G下打开App提交审核；如果打开WiFi开始任务，需要在WiFi下打开App提交审核。</p>
+                <div class="btn" onclick="hidePop('.fasttask-wifi')">我知道了</div></div>
+            </div>-->
+						<!-- Scrollable page content-->
+						<div class="page-content scroll-content tabs fasttask">
+							<div class="initiative-verify clearfix">
+							</div>
+							<div id="tasklist" v-cloak>
+								<div class="list-block media-list fasttask-list">
+									<ul class="type-fast">
+										<li class="item-divider">进行中 &nbsp;</li>
+										<li @click="to_taskdetail_ongoing(ongoinglist)" v-show="ongoinglist !== ''">
+											<a href="#" class="item-link item-content active">
+												<div class="item-media">
+													<img style="-webkit-filter: blur(0px);" :src="ongoinglist.img" width="44"></div>
+												<div class="item-inner">
+													<div class="item-title-row">
+														<div class="item-title">{{ongoinglist.taskName}}</div>
+													</div>
+													<div class="item-subtitle">
+														<div class="item-title fast-tag tag-gray">剩{{ongoinglist.taskCount}}份</div>
+														<div class="item-title fast-tag tag-red">允许联网</div>
+													</div>
+												</div>
+												<div class="item-inner item-right">
+													<div class="item-title-row">
+														<div class="item-title">
+															<div v-show="ongoinglist.incomeType === 0">
+																<span class="ff-ppnum">{{ongoinglist.coin}}</span>
+																金币
+															</div>
+															<div v-show="ongoinglist.incomeType === 1">
+																<span class="ff-ppnum">{{ongoinglist.money}}</span>元
+															</div>
+														</div>
+													</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+								<div class="list-block media-list fasttask-list">
+									<ul class="type-fast">
+										<li class="item-divider">试玩任务 &nbsp;</li>
+										<li @click="to_taskdetail_fast(item)" v-for="item in unsuclist">
+											<a href="#" class="item-link item-content active">
+												<div class="item-media">
+													<img style="-webkit-filter: blur(0px);" :src="item.img" width="44"></div>
+												<div class="item-inner">
+													<div class="item-title-row">
+														<div class="item-title">{{item.taskName}}</div>
+													</div>
+													<div class="item-subtitle">
+														<div class="item-title fast-tag tag-gray">剩{{item.taskCount}}份</div>
+														<div class="item-title fast-tag tag-red">允许联网</div>
+													</div>
+												</div>
+												<div class="item-inner item-right">
+													<div class="item-title-row">
+														<div class="item-title">
+															<div v-show="item.incomeType === 0">
+																<span class="ff-ppnum">{{item.coin}}</span>
+																金币
+															</div>
+															<div v-show="item.incomeType === 1">
+																<span class="ff-ppnum">{{item.money}}</span>元
+															</div>
+														</div>
+													</div>
+												</div>
+											</a>
+										</li>
+										<!-- 										<li v-for="item in fakelist" style="opacity: 0.5;">
+											<a href="#" class="item-link item-content active">
+												<div class="item-media">
+													<img style="-webkit-filter: blur(0px);" :src="item.img" width="44"></div>
+												<div class="item-inner">
+													<div class="item-title-row">
+														<div class="item-title">{{item.taskName}}</div>
+													</div>
+													<div class="item-subtitle">
+														<div class="item-title fast-tag tag-gray">剩{{item.taskCount}}份</div>
+														<div class="item-title fast-tag tag-red">允许联网</div>
+													</div>
+												</div>
+												<div class="item-inner item-right">
+													<div class="item-title-row">
+														<div class="item-title">+
+															<span class="ff-ppnum">{{item.coin}}</span>金币</div>
+													</div>
+												</div>
+											</a>
+										</li> -->
+									</ul>
+								</div>
+								<div class="list-block media-list fasttask-list">
+									<ul class="type-deep">
+										<li class="item-divider">今日已完成任务 &nbsp;</li>
+										<li v-for="item in suclist">
+											<a href="#" class="item-link item-content active">
+												<div class="item-media">
+													<img style="-webkit-filter: blur(0px);" :src="item.img" width="44">
+												</div>
+												<div class="item-inner">
+													<div class="item-title-row">
+														<div class="item-title">{{item.taskName}}</div>
+													</div>
+													<div class="item-subtitle">
+														<div class="item-title fast-tag tag-gray">已完成</div>
+														<div class="item-title fast-tag tag-red">允许联网</div>
+													</div>
+												</div>
+												<div class="item-inner item-right">
+													<div class="item-title-row">
+														<div class="item-title">
+															<div v-show="item.incomeType === 0">
+																<span class="ff-ppnum">{{item.coin}}</span>
+																金币
+															</div>
+															<div v-show="item.incomeType === 1">
+																<span class="ff-ppnum">{{item.money}}</span>元
+															</div>
+														</div>
+													</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/doT.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/myfun.js"></script>
+		<script src="js/vue.min.js"></script>
+		<script>
+			// window.addEventListener('refresh',function(){
+			//      location.reload();//父页面仅仅是刷新页面，当然也可以自定义逻辑函数写在里面 
+			// })
+			var app = new Vue({
+				el: '#tasklist',
+				data: {
+					suclist: '',
+					unsuclist: '',
+					ongoinglist: '',
+					fakelist: [{
+						'img': 'img/scrollNews.png',
+						'taskCount': '20',
+						'taskName': '快看资讯',
+						'coin': '200'
+					}, {
+						'img': 'img/scrollNews.png',
+						'taskCount': '20',
+						'taskName': '快看资讯',
+						'coin': '200'
+					}, {
+						'img': 'img/scrollNews.png',
+						'taskCount': '20',
+						'taskName': '快看资讯',
+						'coin': '200'
+					}, {
+						'img': 'img/scrollNews.png',
+						'taskCount': '20',
+						'taskName': '快看资讯',
+						'coin': '200'
+					}]
+				},
+				created() {
+					var that = this;
+					window.addEventListener('Listener', function(event) {
+						var action = event.detail.action;
+						if ("refresh" == action) {
+							that.get_data();
+						}
+					})
+				},
+				mounted() {
+					var that = this;
+					mui.ready(function() {
+						mui.plusReady(function() {
+							that.plusReady();
+						})
+					});
+				},
+				methods: {
+					get_data() {
+						var that = this;
+						let param = {
+							'userId': userId
+						};
+						let param1 = {
+							'userId': userId,
+							"taskType": 1
+						};
+						get_json('POST', 'task/get_task_list', true, param1).then(function(res) {
+							if (res.code == 0) {
+								that.unsuclist = res.result;
+							} else {
+								that.unsuclist = '';
+								check_res(res.code, res.message);
+							}
+						});
+						get_json('POST', 'task/get_success_task_list', true, param).then(function(res) {
+							// console.log(JSON.stringify(res))
+							if (res.code == 0) {
+								that.suclist = res.result;
+							} else {
+								that.suclist = '';
+								check_res(res.code, res.message);
+							}
+						});
+						get_json('POST', 'task/get_received_task', true, param).then(function(res) {
+							if (res.code == 0) {
+								that.ongoinglist = res.result;
+							} else {
+								that.ongoinglist = '';
+								check_res(res.code, res.message);
+							}
+						});
+					},
+					plusReady() {
+						var that = this;
+						getvalue_plus();
+						that.get_data();
+						//alert(plus.webview.currentWebview().id);
+						Gmainview = plus.webview.getWebviewById(Gmainviewid);
+						Glistview = plus.webview.getWebviewById('tasklist2.html')
+						// Gdeatilview = plus.webview.getWebviewById('taskdeatil.html');
+
+						mui.init({
+							swipeBack: true, //启用右滑关闭功能
+							beforeback: function() { //监听物理返回按键的方法
+								//	Gmainview = plus.webview.getWebviewById(Gmainviewid);
+								//Gmainview.reload();
+								//	mui.back();
+								mui.fire(Gmainview, 'Listener', {
+									action: "refresh"
+								});
+								//返回true，继续页面关闭逻辑
+								return true;
+							}
+						});
+
+						mui("body").on("tap", ".event_close", function() {
+							mui.fire(Gmainview, 'Listener', {
+								action: "refresh"
+							});
+							closeme();
+						});
+
+					},
+					to_taskdetail_ongoing(e) {
+						var datas = {
+							"viewId": plus.webview.currentWebview().id,
+							'userId': userId,
+							'taskdata': e
+						};
+						openwin_plus("./taskdeatil.html", datas);
+					},
+					to_taskdetail_fast(e) {
+						var datas = {
+							"viewId": plus.webview.currentWebview().id,
+							'userId': userId,
+							'taskdata': e
+						};
+						var taskId = e.taskId;
+						let param = {
+							'userId': userId
+						};
+						//判断是否领取过任务
+						get_json('POST', 'task/check_have_task', true, param).then(function(res) {
+							if (res.code == 0) {
+								//如果有任务
+								if (res.result) {
+									plus.nativeUI.toast('请先放弃已领取的任务');
+									// 			var btnArray = ['否', '是'];
+									// 			var message = '<h6>这将放弃上一个任务</h6>';
+
+									// 			$('#alert-bg').css('display', 'block');
+									// 			mui.confirm(message, '确定要进入新任务吗？', btnArray, function(e) {
+									// 				if (e.index == 1) {
+									// 					//重新领取,前一个任务后端判断放弃
+									// 					let param = {
+									// 						'userId': userId,
+									// 						'taskId': taskId
+									// 					};
+									// 					get_json('POST', 'task/get_task', true, param).then(function(res) {
+									// 						if (res.code == 0) {
+									// 							openwin_plus("./taskdeatil.html", datas);
+									// 						} else {
+									// 							check_res(res.code, res.message);
+									// 						}
+									// 					});
+									// 					$('#alert-bg').css('display', 'none');
+									// 				} else {
+									// 					//alert("0");
+									// 					$('#alert-bg').css('display', 'none');
+									// 				}
+									// 			}, 'div');
+								} else {
+									//如果没任务直接领取
+									let param = {
+										'userId': userId,
+										'taskId': taskId
+									};
+									console.log(JSON.stringify(param));
+									get_json('POST', 'task/get_task', true, param).then(function(res) {
+										if (res.code == 0) {
+											console.log(JSON.stringify(res))
+											openwin_plus("./taskdeatil.html", datas);
+										} else {
+											check_res(res.code, res.message);
+										}
+									});
+								}
+							} else {
+								check_res(res.code, res.message);
+							}
+						});
+					}
+				}
+			})
+			//有任务确定要进入其他任务后的回调
+			function Stored_AbortApplicationSession(data) {
+				var datas = {
+					"Gmainviewid": Gmainviewid,
+					'AppID': HAppID,
+					'Packername': HPackername,
+					'UserID': UserID,
+					'DeviceType': DeviceType,
+					'GNickname': GNickname,
+					'DeviceCode': DeviceCode,
+					'MacChar': MacChar,
+					'strIP': strIP,
+					'cityname': cityname,
+					'strTokey': strTokey
+				};
+				openwin_plus("./taskdeatil.html", datas);
+			}
+		</script>
+	</body>
+</html>

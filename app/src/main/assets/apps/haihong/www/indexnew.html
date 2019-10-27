@@ -1,16 +1,14 @@
-<html lang="zh" class="pixel-ratio-2 retina ios ios-11 ios-11-0 ios-gt-10 ios-gt-9 ios-gt-8 ios-gt-7 ios-gt-6 watch-active-state"
- style="font-size: 37.5px;">
+<html>
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<title>海虹APP</title>
-		<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
+		<!-- 		<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon"> -->
 		<link rel="stylesheet" type="text/css" href="css/iconfont.css">
 		<link rel="stylesheet" type="text/css" href="css/framework7-a286981f62.ios_min.css">
 		<link rel="stylesheet" type="text/css" href="css/index_min.css">
 		<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
 		<link rel="stylesheet" type="text/css" href="css/mystyle.css">
-
 		<style>
 			.mydown{
 				margin-top: 4rem!important;
@@ -32,27 +30,22 @@
 				display: flex;
 				align-items: center;
 			}
-			
-				.mycav {
-					background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-					bottom: 0;
-					left: 0;
-					right: 0;
-					top: 0;
-					z-index: 1023;
-					position: fixed;
-				}
-				
+			.mycav {
+				background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+				bottom: 0;
+				left: 0;
+				right: 0;
+				top: 0;
+				z-index: 1023;
+				position: fixed;
+			}
 			[v-cloak] {
 				display: none;
 			}
 		</style>
 	</head>
 	<body class="global-web framework7-root">
-		<!--onresize="windowSizeChange();"-->
 		<div class="statusbar-overlay"></div>
-
-		<!-- Views -->
 		<div class="views" id="indexnew" v-cloak>
 			<div class="view view-main" data-page="index">
 				<div class="navbar">
@@ -98,25 +91,21 @@
 									</div>
 								</div>
 								<!--公告结束-->
-
 							</div>
 							<div class="block-activity1">
 							</div>
 							<div class="block2">
 								<div class="block2-type2">
 									<div class="left">
-										<a class="event_kuaisu">
-											<img src="images/index-middle-bg1.png">
+										<a class="event_hx">
+											<img src="images/block1.png">
 										</a>
-										<a class="list-col event_kuaisu">
-											<img src="images/index-middle-bg2.png">
+										<a class="list-col event_sw">
+											<img src="images/block2.png">
 										</a>
 									</div>
 									<a @click="cl_st()">
-										<!--	<div style="background: red;"></div>-->
-										<!-- <img class="right event_shoutu" src="images/index-middle-bg3.png"> -->
 										<img class="right" src="images/index-middle-bg3.png">
-
 									</a>
 								</div>
 							</div>
@@ -127,7 +116,6 @@
 									<img src="images/taobao-trumpet.png">
 									<p class="fix-title" style="display: none;">专享阅读奖励红包，优惠每日领~</p>
 									<div class="swiper-wrapper" style="transform: translate3d(0px, -95px, 0px); transition-duration: 0ms;">
-
 										<div class="swiper-slide" data-swiper-autoplay="2000" data-swiper-slide-index="2" style="height: 19px;">
 											[阅读奖励] 专享阅读奖励红包，优惠每日领~
 										</div>
@@ -138,27 +126,11 @@
 										<div class="swiper-slide swiper-slide-next" data-swiper-autoplay="2000" data-swiper-slide-index="5" style="height: 19px;">
 											[小编推荐 哈喽，检察官] 公平公正使我们的中级信仰，即使爱情也不能凌驾于之上
 										</div>
-										<!--<div class="swiper-slide" data-swiper-autoplay="2000" data-swiper-slide-index="6" style="height: 19px;">
-                            			[] 正品补水保湿霜 芦荟胶   券后价:9.9元
-                            		</div>-->
-										<!--<div class="swiper-slide" data-swiper-autoplay="2000" data-swiper-slide-index="7" style="height: 19px;">
-                            			[家用落地扇]红双喜家用台式摇头落地扇   券后价:69.0元
-                            		</div>
-                            			<div class="swiper-slide" data-swiper-autoplay="2000" data-swiper-slide-index="8" style="height: 19px;">
-                            				[两条特惠装] 苹果数据线 闪电快充   券后价:14.0元
-                            			</div>
-                            				<div class="swiper-slide" data-swiper-autoplay="2000" data-swiper-slide-index="9" style="height: 19px;">
-                            					【买3送12】老北京睡眠艾草生姜足贴   券后价:9.9元
-                            				</div>
-                            					<div class="swiper-slide swiper-slide-duplicate" data-swiper-autoplay="2000" data-swiper-slide-index="0" style="height: 19px;">
-                            						[瘦身神器] 脚蹬拉力 瘦肚子辅助健身器   券后价:16.9元
-                            					</div>-->
 									</div>
 								</div>
 								<img class="shopping-cart" src="images/taobao-shopping-cart.png">
 							</div>
-
-							<div class="nav-tip-content" style="margin-top: 0.2rem;">
+<!-- 							<div class="nav-tip-content" style="margin-top: 0.2rem;">
 								<div>
 									<span class="num"></span>
 									<span></span></div>
@@ -170,31 +142,25 @@
 								<div>
 									<span class="num"></span>
 									<span></span></div>
-							</div>
+							</div> -->
 
-							<div class="block-activity2">
+<!-- 							<div class="block-activity2">
 							</div>
 							<ul class="block4">
-									<!-- 									<li taskid="item.taskid" schema="snssdk1128://detail?id=6674528242147413251&gd_label=click_schema_xjys3"
-									 packgename="com.ss.android.ugc.aweme" zhname="item.zhname" durl="https://s9.pstatp.com/package/apk/aweme/app_ame_aiouaisi1_v5.9.0_ac754ef.apk">
-										<a class="external red-packet ">
-											<img class="" :src="item.src">
-											<p>{{item.zhname}}</p>
-										</a>
-									</li> -->
-									<li @click="to_taskdetail(item)" v-for="item in applist">
-										<a class="external red-packet">
-											<img :src="item.img">
-											<p>{{item.taskName}}</p>
-										</a>
-									</li>
-							</ul>
-
+								<li @click="to_taskdetail(item)" v-for="item in applist">
+									<a class="external red-packet">
+										<img :src="item.img">
+										<p>{{item.taskName}}</p>
+									</a>
+								</li>
+							</ul> -->
 							<img class="footer" src="images/bottom-logo1228.png">
+							<div style="color: lightgray;width: 100%;text-align: center;">
+								版本号:{{version}}{{wgtVersion}}
+							</div>
 						</div>
-
 						<!--新手教程弹框 E -->
-						<div class="fixed-index">
+<!-- 						<div class="fixed-index">
 							<a class="event_xinshoujiaocheng">
 								<img src="images/index-course.png">
 								<div class="video">
@@ -203,166 +169,20 @@
 									</video>
 								</div>
 							</a>
-						</div>
+						</div> -->
 						<!-- Scrollable page content E -->
 					</div>
-
-	<!-- 				<div class="alipay-pop">
-						<div class="bg">
-							<div class="close-alipay-pop">×</div>
-							<p class="line1">支付宝红包每天领</p>
-							<p class="line2">每次付款前都可以来领一​​次哦</p>
-							<img src="images/index-redpacket-text.png">
-							<p class="line3">打开支付宝首页搜索</p>
-							<p class="line4">56238838</p>
-							<p class="open-alipay line5">复制并打开支付宝</p>
-						</div>
-					</div> -->
-					<!-- 推送开启弹窗-->
-					<!--                <div class="open-push-pop" id="open-push-pop" data-version="-->
-					<!--?//=$noticeInfoTwo['version']?-->
-					<!--" data-isShow="-->
-					<!--?//=$noticeInfoTwo['isShow']?-->
-					<!--" data-loop="-->
-					<!--?//=$noticeInfoTwo['loop']?-->
-					<!--" data-url="-->
-					<!--?//=$noticeInfoTwo['alert_url']?-->
-					<!--">-->
-					<!--                    <div class="pop-mask" onclick="fasttaskHide('#open-push-pop')"></div>-->
-					<!--                    <div class="open-push-pop-content">-->
-					<!--                        <img src="-->
-					<!--?//=__RESOURCE__?-->
-					<!--app/img/index_new/index-open-push.png">-->
-					<!--                        <div class="open-push-text">-->
-					<!--                            <p>开启消息推送</p>-->
-					<!--                            <p>让你最快收到赚钱消息提醒</p>-->
-					<!--                            <div class="open-push">立即开启</div>-->
-					<!--                        </div>-->
-					<!--                    </div>-->
-					<!--                </div>-->
-					<!-- 新手引导弹窗-->
-					<div class="new-user-pop" style="display: none;">
-						<div class="mask">
-							<div class="withdraw-block" style="top: 128.5px;">
-								<p class="withdraw-img">提现</p>
-								<img class="withdraw-text" src="images/withdraw-text.png">
-							</div>
-							<div class="task-block" style="top: 227.75px;">
-								<img class="task-img" src="images/index-middle-bg1.png">
-								<img class="task-text" src="images/task-text.png">
-							</div>
-<!-- 							<p class="iknow" style="top: 367.75px;">我知道了</p> -->
-						</div>
-					</div>
-<!-- 					<div class="index-verify-success-pop">
-						<div class="mask" onclick="hidePop('.index-verify-success-pop')"></div>
-						<div class="content">
-							<p class="p1">恭喜您已实名认证通过，尊享两大特权</p>
-							<p class="p3" onclick="hidePop('.index-verify-success-pop')">好的</p>
-						</div>
-
-					</div> -->
-					<!-- Page, "data-page" contains page name  E-->
-
 				</div>
-
-<!-- 				<div class="safari-private-mode">
-					<img class="bg-img" src="images/safari-private-mode.png" alt="">
-				</div> -->
 			</div>
 		</div>
 		<div class="mycav" id="coincav" data-loop="86400" style="display: none;z-index: 99999;">
 		</div>
-		<script src="js/doT.min.js"></script>
 		<script src="js/mui.min.js"></script>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/vue.min.js"></script>
-		<script src="js/swiper.min.js"></script>
-		<script src="js/axios.min.js"></script>
+		<script src="js/swiper.min.js"></script>	
 		<script src="js/index_min-ea6fc6e183.js"></script>
 		<script src="js/myfun.js"></script>
-		<script src="js/json.js"></script>
 		<script src="js/indexhtml.js"></script>
-		<!--以下是h5调用原生函数需要引入的桥文件-->
-		<script type="text/javascript" src="./js/bridge.js"></script>
-		<script>
-			mui.ready(function () {
-			if(window.plus){
-				plusReady();
-			}else{
-				document.addEventListener('plusready', plusReady, false);
-			};
-			});
-
-		function plusReady(){
-
-			//方式一，调用diqanquapi插件中的函数getimei()，目前会返回字符串‘我是插件1’
-			alert("private key:"+plus.dianquapi.get_private_key());
-			alert("public key:"+plus.dianquapi.get_public_key());
-			//方式二,调用原生类中的函数，必须用com.haihong.dianqu.SDK_WebApp 实例化对象，后续函数都会在webapp中扩充
-		//	var mainAct = plus.android.newObject("com.haihong.dianqu.SDK_WebApp");
-			//调用mainAct 实例化中的test函数，目前test函数没有返回值，会Toast一段提示文字而已
-		//	 plus.android.invoke(mainAct,"test");
-
-			}
-
-			window.addEventListener('Listener', function(event) {
-				var action = event.detail.action;
-				if ("refresh" == action) {
-					location.reload();
-				}
-			})
-
-			//金币特效
-			window.onload = function() {
-				// var oBtn=document.getElementById('btn1');
-				init();
-				// oBtn.onclick=function(){
-				//  var coin=new Coin();        
-				//}  
-
-				var SHAKE_THRESHOLD = 400;
-				var last_update = 0;
-				var index = 0;
-				var x = y = z = last_x = last_y = last_z = 0;
-				var w_curTime = 0;
-
-				function init() {
-					if (window.DeviceMotionEvent) {
-						window.addEventListener('devicemotion', deviceMotionHandler, false);
-					} else {
-						alert('not support mobile event');
-					}
-				}
-
-				function deviceMotionHandler(eventData) {
-					var acceleration = eventData.accelerationIncludingGravity;
-					var curTime = new Date().getTime();
-					if ((curTime - last_update) > 100) {
-						var diffTime = curTime - last_update;
-						last_update = curTime;
-						x = acceleration.x;
-						y = acceleration.y;
-						z = acceleration.z;
-						var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
-						var delta = Math.abs(x + y + z - last_x - last_y - last_z);
-
-						if (speed > SHAKE_THRESHOLD) {
-							if ((curTime - w_curTime) > 2000) {
-								w_curTime != 0 && new Coin({
-									density: Math.round(delta)
-								});
-								w_curTime = curTime;
-							}
-						}
-
-						last_x = x;
-						last_y = y;
-						last_z = z;
-					}
-				}
-
-			}
-		</script>
 	</body>
 </html>
